@@ -1,0 +1,8 @@
+{
+  "name": "shivaBLE",
+  "app_id": "8f0b3c89",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
