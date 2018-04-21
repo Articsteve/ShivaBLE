@@ -1,14 +1,18 @@
-import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NgModule } from '@angular/core';
+import { IonicPageModule } from 'ionic-angular';
+import { SettingsPage } from './settings';
 import { BluetoothSerial } from '@ionic-native/bluetooth-serial';
 import { AlertController } from 'ionic-angular';
 
-@Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+@NgModule({
+  declarations: [
+    SettingsPage,
+  ],
+  imports: [
+    IonicPageModule.forChild(SettingsPage),
+  ],
 })
-export class HomePage {
-
+export class SettingsPageModule {
   unpairedDevices: any;
   pairedDevices: any;
   gettingDevices: Boolean;
