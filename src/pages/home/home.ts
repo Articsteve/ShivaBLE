@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { SpotifyService } from '../../app/services/spotify.service';
 
+import { SettingsPage } from '../settings/settings';
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -22,5 +24,7 @@ export class HomePage {
       this.song = song;
     })
   }
-
+  viewSettings(){
+    this.navCtrl.push(SettingsPage);
+  }
 }

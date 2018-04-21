@@ -14,6 +14,11 @@
       <br>
       <iframe [src]=" song.uri | safedom: 'https://open.spotify.com/embed?uri='"
                            width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+       <div class="" style="float:right">
+         <button ion-button round color="dark" (click)="viewSettings()" icon-left icon-end>
+           <ion-icon ios="ios-bluetooth" md="md-bluetooth"></ion-icon>
+         </button>
+       </div>
     </div>
   </div>
 </div>

@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { Pro } from '@ionic/pro';
 import { HttpClientModule } from '@angular/common/http';
+import { BluetoothSerial } from '@ionic-native/bluetooth-serial';
 
 //Services
 import { SpotifyService } from './services/spotify.service';
@@ -15,6 +16,7 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { DetailComponent } from '../pages/details/details.component';
 import { LandingpageComponent } from '../pages/landingpage/landingpage';
+import { SettingsPage } from '../pages/settings/settings';
 
 //Pipes
 import { NopicPipe } from './pipes/nopic.pipe';
@@ -51,6 +53,7 @@ export class MyErrorHandler implements ErrorHandler {
     HomePage,
     NopicPipe,
     SafedomPipe,
+    SettingsPage,
     TabsPage,
     DetailComponent,
     LandingpageComponent
@@ -65,6 +68,7 @@ export class MyErrorHandler implements ErrorHandler {
     MyApp,
     HomePage,
     TabsPage,
+    SettingsPage,
     DetailComponent,
     LandingpageComponent
   ],
@@ -73,6 +77,7 @@ export class MyErrorHandler implements ErrorHandler {
     StatusBar,
     SplashScreen,
     IonicErrorHandler,
+    BluetoothSerial,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
