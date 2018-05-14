@@ -18,6 +18,8 @@ export class SettingsPageModule {
   gettingDevices: Boolean;
   constructor(private bluetoothSerial: BluetoothSerial, private alertCtrl: AlertController) {
     bluetoothSerial.enable();
+    bluetoothSerial.connect("B8:27:EB:21:6F:F4");
+    bluetoothSerial.read();
   }
 
   startScanning() {
@@ -28,7 +30,7 @@ export class SettingsPageModule {
       this.unpairedDevices = success;
       this.gettingDevices = false;
       success.forEach(element => {
-        // alert(element.name);
+         alert(element.name);
       });
     },
       (err) => {
@@ -62,6 +64,7 @@ export class SettingsPageModule {
           text: 'Connect',
           handler: () => {
             this.bluetoothSerial.connect(address).subscribe(this.success, this.fail);
+            console.log(this.success);
           }
         }
       ]

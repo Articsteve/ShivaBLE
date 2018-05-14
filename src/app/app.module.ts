@@ -9,7 +9,7 @@ import { BluetoothSerial } from '@ionic-native/bluetooth-serial';
 
 //Services
 import { SpotifyService } from './services/spotify.service';
-
+import { MusicService } from './services/music.service';
 //Components
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -17,6 +17,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { DetailComponent } from '../pages/details/details.component';
 import { LandingpageComponent } from '../pages/landingpage/landingpage';
 import { SettingsPage } from '../pages/settings/settings';
+import {BluetoothPage} from '../pages/bluetooth/bluetooth';
 
 //Pipes
 import { NopicPipe } from './pipes/nopic.pipe';
@@ -56,7 +57,8 @@ export class MyErrorHandler implements ErrorHandler {
     SettingsPage,
     TabsPage,
     DetailComponent,
-    LandingpageComponent
+    LandingpageComponent,
+    BluetoothPage
   ],
   imports: [
     BrowserModule,
@@ -70,10 +72,12 @@ export class MyErrorHandler implements ErrorHandler {
     TabsPage,
     SettingsPage,
     DetailComponent,
-    LandingpageComponent
+    LandingpageComponent,
+    BluetoothPage
   ],
   providers: [
     SpotifyService,
+    MusicService,
     StatusBar,
     SplashScreen,
     IonicErrorHandler,
