@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { SpotifyService } from '../../app/services/spotify.service';
 import { songDetails } from '../interfaces/songdetails.interface';
 @Injectable()
-export class MusicService {
+export class MusicService implements OnInit{
 
   //75-150
   motivational:any = [
@@ -21,7 +21,19 @@ export class MusicService {
     "0lMrWcrVXHPEuVBuc0nRzZ" //Specter
   ]
 
+  mood:number;
+
+  relaxPlaylistUri:string = "spotify:user:spotify:playlist:37i9dQZF1DWU0ScTcjJBdj";   //0 relax
+  concentrationPlaylistUri = "spotify:user:spotify:playlist:37i9dQZF1DWSluGMsH1R9r";  //1 concentration
+  trainingPlaylistUri = "spotify:user:spotify:playlist:37i9dQZF1DX8ucVJaqqjpS";       //2 training
+  runningPlaylistUri = "spotify:user:spotify:playlist:37i9dQZF1DX8ucVJaqqjpS";        //3 running
+
+  freeRunUri = "spotify:user:spotify:playlist:37i9dQZF1DXadOVCgGhS7j"                 //4 free run 150-165
+  warmUpUri = "spotify:user:spotify:playlist:37i9dQZF1DX3PIAZMcbo2T";                 //5 warm up 130-150
+
+
   playlistSongs:songDetails[] = [];
+  concentrationPlaylist:any = [];
   song:string = "";
   constructor(public http: HttpClient, public _spotifyService:SpotifyService) {
     let take1:number = this.randomNumberGeneratorM();
@@ -52,11 +64,45 @@ export class MusicService {
         }
     //  })
     })
-     console.log("Music Service Music Array", this.playlistSongs)
   }
   randomNumberGeneratorM(){
   let num = Math.round(Math.random() * 160)
   return num;
+  }
+  getPlaylist(){
+    let localMood = this.mood;
+      switch(localMood){
+        case 0:{
+          //0 relax
+          return this.relaxPlaylistUri;
+        }
+        case 1:{
+          //1 concentration
+          return this.concentrationPlaylistUri;
+        }
+        case 2:{
+          //2 training
+          return this.trainingPlaylistUri;
+        }
+        case 3:{
+          //3 running
+          return this.runningPlaylistUri;
+        }
+        case 4:{
+          //4 free run 150-165
+          return this.freeRunUri;
+        }
+        case 5:{
+          //5 warm up 130-150 
+          this.warmUpUri;
+        }
+        default:{
+          return;
+        }
+      }
+  }
+  ngOnInit(){
+
   }
 
 }

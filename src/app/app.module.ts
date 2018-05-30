@@ -6,10 +6,14 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { Pro } from '@ionic/pro';
 import { HttpClientModule } from '@angular/common/http';
 import { BluetoothSerial } from '@ionic-native/bluetooth-serial';
+import { HttpModule } from '@angular/http';
 
 //Services
 import { SpotifyService } from './services/spotify.service';
 import { MusicService } from './services/music.service';
+import { TextService } from './services/text.service';
+import { FirebaseService } from './services/firebase.service';
+
 //Components
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -17,7 +21,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { DetailComponent } from '../pages/details/details.component';
 import { LandingpageComponent } from '../pages/landingpage/landingpage';
 import { SettingsPage } from '../pages/settings/settings';
-import {BluetoothPage} from '../pages/bluetooth/bluetooth';
+import { BluetoothPage } from '../pages/bluetooth/bluetooth';
 
 //Pipes
 import { NopicPipe } from './pipes/nopic.pipe';
@@ -63,7 +67,8 @@ export class MyErrorHandler implements ErrorHandler {
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpClientModule
+    HttpClientModule,
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -82,6 +87,8 @@ export class MyErrorHandler implements ErrorHandler {
     SplashScreen,
     IonicErrorHandler,
     BluetoothSerial,
+    TextService,
+    FirebaseService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
